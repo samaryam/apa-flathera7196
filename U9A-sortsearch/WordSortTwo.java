@@ -10,21 +10,21 @@ public class WordSortTwo
 
 	public WordSortTwo(String sentence)
 	{
-    wordRay = sentence.split(" ");
+		wordRay = sentence.split(" ");
 	}
 
 	public void sort()
 	{
-    Arrays.sort(wordRay);
+		Arrays.sort(wordRay);
 	}
 
 	public String toString()
 	{
 		String output = "";
-    for(String word: wordRay)
-    {
-      output = output + "\n" + word;
-    }
+		for(String word: wordRay)
+		{
+			output = output + "\n" + word;
+		}
 		return output;
 	}
 }

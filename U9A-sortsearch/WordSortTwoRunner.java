@@ -15,6 +15,7 @@ public class WordSortTwoRunner
 		file = new Scanner(new File("wordsorttwo.dat"));
 		int size = file.nextInt();
 		file.nextLine();
+		
 		for(int i = 0; i<size; i++)
 		{
 			String sentence = file.nextLine();

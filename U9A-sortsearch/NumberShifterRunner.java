@@ -2,11 +2,7 @@
 //www.apluscompsci.com
 //Name -
 
-import java.util.Arrays;
-import java.util.Scanner;
-import java.io.File;
 import java.io.IOException;
-import static java.lang.System.*;
 
 public class NumberShifterRunner
 {
@@ -18,13 +14,13 @@ public class NumberShifterRunner
 	  {
 		System.out.print(num + " ");
 	  }
-	  System.out.println("");
+	  System.out.println();
 	  NumberShifter.shiftEm(array1);
 	  for(int num: array1)
 	  {
 		System.out.print(num + " ");
 	  }
-	  System.out.println("");
+	  System.out.println();
 	}
 }
 
