@@ -9,11 +9,7 @@
 import java.awt.Font;
 import java.awt.Color;
 import java.awt.Graphics;
-import java.awt.Graphics2D;
-import java.awt.Canvas;
 import javax.swing.JPanel;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 
 public class ShapePanel extends JPanel
 {
@@ -43,11 +39,15 @@ public class ShapePanel extends JPanel
 
 		//instantiate a Shape
 		//tell your shape to draw
-
+		Shape one = new Shape(100, 100, 50, 50, Color.YELLOW);
+		one.draw(window);
 		//instantiate a Shape
 		//tell your shape to draw
-
+		Shape two = new Shape(100, 200, 200, 100, Color.BLUE);
+		two.draw(window);
 		//instantiate a Shape
 		//tell your shape to draw
+		Shape three = new Shape(350, 250, 300, 400, Color.MAGENTA);
+		three.draw(window);
 	}
 }

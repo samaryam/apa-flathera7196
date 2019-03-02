@@ -11,7 +11,7 @@ import javax.swing.JFrame;
 public class GraphicsRunner extends JFrame
 {
   private static final int WIDTH = 800;
-  private static final int HEIGHT = 600;
+  private static final int HEIGHT = 800;
   
   public GraphicsRunner()
   {
@@ -19,10 +19,16 @@ public class GraphicsRunner extends JFrame
       
     setSize(WIDTH,HEIGHT);
     
-    getContentPane().add(new SmileyFace());
+    //getContentPane().add(new SmileyFace());
     
     //add other classes to run them 
     //BigHouse, Robot, or ShapePanel 
+    
+    //getContentPane().add(new BigHouse());
+    
+    //getContentPane().add(new Robot());
+    
+    getContentPane().add(new ShapePanel());
     
     setVisible(true);
     

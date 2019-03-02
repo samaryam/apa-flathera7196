@@ -10,6 +10,7 @@ import java.awt.Graphics;
 import java.awt.Color;
 import java.awt.Canvas;
 
+
 public class SmileyFace extends Canvas
 {
    public SmileyFace()    //constructor - sets up the class
@@ -33,10 +34,11 @@ public class SmileyFace extends Canvas
       window.fillOval( 210, 100, 400, 400 );
 
 		//add more code here
-      window.drawOval(40, 40, 20, 20);
-//    window.fillOval(40, 40, 20, 20);
-//    window.setColor(Color.BLACK);
-//    window.fillOval(40, 40, 20, 20);      
-//    window.setColor(Color.BLACK);
+      window.setColor(Color.BLACK);
+      window.fillOval(320, 200, 40, 40);
+      window.setColor(Color.BLACK);
+      window.fillOval(470, 200, 40, 40); 
+      
+      window.drawArc(340, 300, 150, 100, 180, 180);
    }
 }
