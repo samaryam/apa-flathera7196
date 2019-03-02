@@ -3,8 +3,6 @@
 //Name -
 
 import java.util.Arrays;
-import java.util.Scanner;
-import static java.lang.System.*;
 
 public class WordSortTwo
 {
@@ -12,15 +10,21 @@ public class WordSortTwo
 
 	public WordSortTwo(String sentence)
 	{
+    wordRay = sentence.split(" ");
 	}
 
 	public void sort()
 	{
+    Arrays.sort(wordRay);
 	}
 
 	public String toString()
 	{
-		String output="";
-		return output+"\n\n";
+		String output = "";
+    for(String word: wordRay)
+    {
+      output = output + "\n" + word;
+    }
+		return output;
 	}
 }
