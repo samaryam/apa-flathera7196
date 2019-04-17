@@ -3,14 +3,11 @@
 //Name -
  
 import javax.swing.JFrame;
+import java.awt.Component;
 
 public class Tester extends JFrame
 {
-  /**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
-private static final int WIDTH = 800;
+  private static final int WIDTH = 800;
   private static final int HEIGHT = 600;
 
   public Tester()
@@ -35,6 +32,5 @@ private static final int WIDTH = 800;
   public static void main( String args[] )
   {
     Tester run = new Tester();
-    
   }
 }
