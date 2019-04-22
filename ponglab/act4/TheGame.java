@@ -7,8 +7,8 @@ import java.awt.Component;
 
 public class TheGame extends JFrame
 {
-  private static final int WIDTH = 400;
-  private static final int HEIGHT = 300;
+  private static final int WIDTH =  800;
+  private static final int HEIGHT = 600;
 
   public TheGame()
   {
