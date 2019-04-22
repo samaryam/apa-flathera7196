@@ -4,44 +4,32 @@
 
 import java.awt.Color;
 import java.awt.Graphics;
-import java.awt.Graphics2D;
 import java.awt.Canvas;
-import java.awt.event.ActionEvent;
 import java.awt.event.KeyListener;
 import java.awt.event.KeyEvent;
 import static java.lang.Character.*;
-import java.awt.image.BufferedImage;
-import java.awt.event.ActionListener;
 
 public class PaddleTestTwo extends Canvas implements KeyListener, Runnable
 {
+  private static final long serialVersionUID = 1L;
   private Ball ball;
-  private Paddle leftPaddle;
+  private Paddle leftPaddle, rightPaddle;
   private boolean[] keys;		//keeps track of what keys are pressed
 
   public PaddleTestTwo()
   {
     //set up all game variables
 
-
     //instantiate a Ball
-		
-		
+	ball = new Ball(100, 100, 10, 10, Color.BLACK);
 		
     //instantiate a left Paddle
-		
-		
-		
-		
-    //instantiate a right Paddle
-		
-		
-		
+	leftPaddle = new Paddle(20, 200, 10, 60, Color.RED);
 
+    //instantiate a right Paddle
+	rightPaddle = new Paddle(770, 200, 10, 60, Color.RED);
 
     keys = new boolean[5];
-
-
     //set up the Canvas
     setBackground(Color.WHITE);
     setVisible(true);
@@ -59,35 +47,51 @@ public class PaddleTestTwo extends Canvas implements KeyListener, Runnable
   {
     ball.moveAndDraw(window);
     leftPaddle.draw(window);
+    rightPaddle.draw(window);
 
-    if (!(ball.getX()>=10 && ball.getX()<=550))
+    if (!(ball.getX()>= 0 && ball.getX()<= 790))
     {
       ball.setXSpeed(-ball.getXSpeed());
     }
 
-    if (!(ball.getY()>=10 && ball.getY()<=450))
+    if (!(ball.getY()>= 0 && ball.getY()<=570))
     {
       ball.setYSpeed(-ball.getYSpeed());
     }
 
     if (keys[0])
     {
-      //move left paddle up and draw it on the window
-      leftPaddle.moveUpAndDraw(window);
+        //move left paddle up and draw it on the window
+    	if(leftPaddle.getY() >= 10)
+    	{
+            leftPaddle.moveUpAndDraw(window);
+            //System.out.println(leftPaddle.getY());
+    	}
     }
     if (keys[1])
     {
-      //move left paddle down and draw it on the window
-
-
+        //move left paddle down and draw it on the window
+    	if(leftPaddle.getY() <= 510)
+    	{
+            leftPaddle.moveDownAndDraw(window);
+            //System.out.println(leftPaddle.getY());
+    	}
     }
     if (keys[2])
     {
-
+    	if(rightPaddle.getY() >= 10)
+    	{
+            rightPaddle.moveUpAndDraw(window); 
+            //System.out.println(rightPaddle.getY());
+    	}
     }
     if (keys[3])
     {
-
+    	if(rightPaddle.getY() <= 510)
+    	{
+            rightPaddle.moveDownAndDraw(window);
+            //System.out.println(rightPaddle.getY());
+    	}
     }
   }
 
@@ -96,9 +100,9 @@ public class PaddleTestTwo extends Canvas implements KeyListener, Runnable
     switch (toUpperCase(e.getKeyChar()))
     {
     case 'W' : keys[0]=true; break;
-    case 'Z' : keys[1]=true; break;
+    case 'S' : keys[1]=true; break;
     case 'I' : keys[2]=true; break;
-    case 'M' : keys[3]=true; break;
+    case 'K' : keys[3]=true; break;
     }
   }
 
@@ -107,9 +111,9 @@ public class PaddleTestTwo extends Canvas implements KeyListener, Runnable
     switch(toUpperCase(e.getKeyChar()))
     {
     case 'W' : keys[0]=false; break;
-    case 'Z' : keys[1]=false; break;
+    case 'S' : keys[1]=false; break;
     case 'I' : keys[2]=false; break;
-    case 'M' : keys[3]=false; break;
+    case 'K' : keys[3]=false; break;
     }
   }
 
@@ -124,8 +128,8 @@ public class PaddleTestTwo extends Canvas implements KeyListener, Runnable
     {
       while(true)
       {
-	Thread.currentThread().sleep(8);
-	repaint();
+	    Thread.currentThread().sleep(8);
+	    repaint();
       }
     }catch(Exception e)
     {

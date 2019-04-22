@@ -3,14 +3,13 @@
 //Name -
  
 import javax.swing.JFrame;
-import java.awt.Component;
 
-public class Tester extends JFrame
+public class Tester1 extends JFrame
 {
   private static final int WIDTH = 800;
   private static final int HEIGHT = 600;
 
-  public Tester()
+  public Tester1()
   {
     super("PONG TESTER");
     setSize(WIDTH,HEIGHT);
@@ -31,6 +30,6 @@ public class Tester extends JFrame
 
   public static void main( String args[] )
   {
-    Tester run = new Tester();
+    Tester1 run = new Tester1();
   }
 }
