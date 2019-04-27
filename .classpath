@@ -1,10 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
-	<classpathentry kind="src" path="ponglab/act1"/>
-	<classpathentry kind="src" path="ponglab/act2"/>
-	<classpathentry kind="src" path="ponglab/act3"/>
-	<classpathentry kind="src" path="ponglab/act4"/>
-	<classpathentry kind="src" path="ponglab/act5"/>
+	<classpathentry kind="src" path="pixlab"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
