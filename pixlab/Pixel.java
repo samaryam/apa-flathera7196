@@ -351,6 +351,34 @@ public class Pixel
    double average = (getRed() + getGreen() + getBlue()) / 3.0;
    return average;
  }
+
+ //(R + G + B) / 3
+ public void setGrayAverage()
+ {
+	 int avg = (int)getAverage();
+	 setRed(avg);
+	 setGreen(avg);
+	 setBlue(avg);
+ }
+ 
+ //max(R, G, B) + min(R, G, B)) / 2
+ public void setGrayLightness()
+ {
+	 int max = Math.max(getBlue(), Math.max(getRed(), getGreen()));
+	 int min = Math.min(getBlue(), Math.max(getRed(), getGreen()));
+	 int num = (max + min)/2;
+	 setColor(new Color(num, num, num));
+	 
+ }
+ 
+ //0.21 R + 0.72 G + 0.07 B
+ public void setGrayLuminosity()
+ {
+	 int num = (int)(getRed()*0.21) + (int)(getGreen()*0.72) + (int)(getBlue()*0.07);
+	 setRed(num);
+	 setGreen(num);
+	 setBlue(num);
+ }
   
   /**
    * Method to return a string with information about this pixel
