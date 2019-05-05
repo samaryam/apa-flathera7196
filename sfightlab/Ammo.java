@@ -4,52 +4,83 @@
 
 import java.awt.Color;
 import java.awt.Graphics;
-import java.awt.Image;
-import java.io.File;
-import javax.imageio.ImageIO;
 
 public class Ammo extends MovingThing
 {
   private int speed;
+  private Color color;
 
   public Ammo()
   {
-    this(0,0,0);
+    this(0,0,0, Color.GREEN);
+    speed = 3;
   }
 
-  public Ammo(int x, int y)
+  public Ammo(int x, int y, int s, Color c)
   {
-    //add code
+    super(x,y);
+    speed = s;
+    color = c;
   }
-
-  public Ammo(int x, int y, int s)
-  {
-    //add code
-  }
-
+  
   public void setSpeed(int s)
   {
-    //add code
+    speed = s;
   }
 
   public int getSpeed()
   {
-    return 0;
+    return speed;
   }
 
   public void draw( Graphics window )
   {
-    //add code to draw the ammo
+	  window.setColor(color);
+	  window.fillRect(getX(),getY(),getWidth(),getHeight());
   }
-        
-        
-  public void move( String direction )
+  
+  public void move()
   {
-    //add code to draw the ammo
+	  setY(getY() + getSpeed());
+  }
+  
+  public boolean outOfBounds(int x, int y)
+  {
+	  if(getX()+getWidth() < 0  || getX() > x || getY()+getHeight() < 0 || getY() > y)
+	  {
+		  return true;
+	  }
+	  return false;
+  }
+  
+  public boolean didCollideUp(Object o)
+  {
+	  MovingThing obj = (MovingThing)o;
+	  if(getY() >= obj.getY()+obj.getHeight() - 10 && getY() <= obj.getY()+obj.getHeight() && getX() - getWidth() >= obj.getX() && getX() <= obj.getX()+obj.getWidth())
+	  {
+		  return true;
+	  }
+	  return false;
+  }
+  
+  public boolean didCollideDown(Object o)
+  {
+	  MovingThing obj = (MovingThing)o;
+	  if(getY()+getHeight()>= obj.getY() - 10 && getY() + getHeight() <= obj.getY() && getX() - getWidth() >= obj.getX() && getX() <= obj.getX()+obj.getWidth())
+	  {
+		  return true;
+	  }
+	  return false;
   }
 
   public String toString()
   {
-    return "";
+    return super.toString() + " " + speed;
   }
+
+@Override
+public void move(String direction) {
+	// TODO Auto-generated method stub
+	
+}
 }

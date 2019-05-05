@@ -160,7 +160,6 @@ public class PictureTester
   public static void testBlur(int x, int y, int w, int h, int n)
   {
 	  Picture redMoto = new Picture("redMotorcycle.jpg");
-	  redMoto.explore();
 	   for (int i = 0; i<n; i++){
 	      redMoto.blur(x,y,w,h);
 	    }
@@ -197,7 +196,7 @@ public class PictureTester
     //testEdgeDetection();
     //testEdgeDetection2();
 	testBlur(160,180,25,30,6);
-	//testBlur(0,0,700,500,6);
+	//testBlur(0,0,700,500,1);
     //testChromakey();
     //testEncodeAndDecode();
     //testGetCountRedOverValue(250);

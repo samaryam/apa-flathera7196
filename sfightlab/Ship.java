@@ -2,9 +2,8 @@
 //www.apluscompsci.com
 //Name -
 
-import java.io.File;
 import java.net.URL;
-import java.awt.Color;
+import java.util.List;
 import java.awt.Graphics;
 import java.awt.Image;
 import javax.imageio.ImageIO;
@@ -21,12 +20,12 @@ public class Ship extends MovingThing
 
   public Ship(int x, int y)
   {
-    //add code here
+    this(x,y,10,10,10);
   }
 
   public Ship(int x, int y, int s)
   {
-    //add code here
+	  this(x,y,10,10,s);
   }
 
   public Ship(int x, int y, int w, int h, int s)
@@ -40,24 +39,60 @@ public class Ship extends MovingThing
     }
     catch(Exception e)
     {
-      //feel free to do something here
+    	System.out.println("Could not find image.");
     }
   }
 
+  public void stop()
+  {
+	  setSpeed(0);
+  }
 
   public void setSpeed(int s)
   {
-    //add more code
+    speed = s;
   }
 
   public int getSpeed()
   {
-    return 0;
+    return speed;
   }
 
   public void move(String direction)
   {
-    //add code here
+    direction.toUpperCase();
+    if(direction.equals("LEFT"))
+    {
+    	setX(getX() - speed);
+    }
+    
+    else if(direction.equals("RIGHT"))
+    {
+    	setX(getX() + speed);
+    }
+    
+    else if(direction.equals("UP"))
+    {
+    	setY(getY() - speed);
+    }
+    
+    else if(direction.equals("DOWN"))
+    {
+    	setY(getY() + speed);
+    }
+  }
+  
+  public boolean hit(List<Ammo> shots)
+  {
+	  for(int j = shots.size() - 1; j >= 0; j--)
+	  {
+		  if(shots.get(j).didCollideDown(this) && shots.get(j).getSpeed()>0)
+		  {
+			  shots.remove(j);
+			  return true;
+		  }
+	  }  
+	  return false;
   }
 
   public void draw( Graphics window )

@@ -2,9 +2,7 @@
 //www.apluscompsci.com
 //Name -
 
-import java.io.File;
 import java.net.URL;
-import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Image;
 import javax.imageio.ImageIO;
@@ -12,6 +10,7 @@ import javax.imageio.ImageIO;
 public class Alien extends MovingThing
 {
   private int speed;
+  private boolean shot;
   private Image image;
 
   public Alien()
@@ -21,12 +20,13 @@ public class Alien extends MovingThing
 
   public Alien(int x, int y)
   {
-    //add code here
+    super(x,y);
   }
 
   public Alien(int x, int y, int s)
   {
-    //add code here
+    super(x,y);
+    speed = s;
   }
 
   public Alien(int x, int y, int w, int h, int s)
@@ -40,23 +40,56 @@ public class Alien extends MovingThing
     }
     catch(Exception e)
     {
-      //feel free to do something here
+    	System.out.println("Could not find image.");
     }
   }
 
   public void setSpeed(int s)
   {
-    //add code
+    speed = s;
   }
 
   public int getSpeed()
   {
-    return 0;
+    return speed;
+  }
+  
+  public void setShot(boolean b)
+  {
+	  shot = b;
+  }
+  
+  public boolean getShot()
+  {
+	  return shot;
+  }
+  
+  public boolean outOfBounds(int x, int y)
+  {
+	  if(getX()+getWidth() < 0  || getX() > x || getY()+getHeight() < 0 || getY() > y)
+	  {
+		  return true;
+	  }
+	  return false;
   }
 
   public void move(String direction)
   {
-    //add code here
+	  if(outOfBounds(800,600))
+	  {
+		  setY(getY() + 100);
+		  setSpeed(-1*getSpeed());
+	  }
+	  direction.toUpperCase();
+	    if(direction.equals("LEFT"))
+	    {
+	    	setX(getX() - speed);
+	    }
+	    
+	    else if(direction.equals("RIGHT"))
+	    {
+	    	setX(getX() + speed);
+	    }
   }
 
   public void draw( Graphics window )
@@ -66,6 +99,6 @@ public class Alien extends MovingThing
 
   public String toString()
   {
-    return "";
+    return super.toString() + getSpeed();
   }
 }
